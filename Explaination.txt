@@ -1,0 +1,49 @@
+-- Connect to MySQL server
+mysql.exe -u root
+
+Description: This command connects to the MySQL server using the `mysql` command-line client with the `root` user. Replace `root` with your MySQL username if different.
+
+-- Create a new database named Mahesh
+CREATE DATABASE IF NOT EXISTS Mahesh;
+
+Description: This SQL statement creates a new database named `Mahesh` if it does not already exist. The `IF NOT EXISTS` clause prevents an error if the database already exists.
+
+-- List all databases to confirm creation
+SHOW DATABASES;
+
+Description: This SQL command lists all databases in the MySQL server to confirm that the `Mahesh` database has been successfully created.
+
+-- Switch to the Mahesh database
+USE Mahesh;
+
+Description: This SQL statement selects the `Mahesh` database to make it the active database for subsequent operations.
+
+-- Create the cricket_scores table
+CREATE TABLE IF NOT EXISTS cricket_scores (
+    ball INT,
+    run INT
+);
+
+Description: This SQL command creates a table named `cricket_scores` with two columns: `ball` (integer) and `run` (integer). The `IF NOT EXISTS` clause ensures that the table is created only if it does not already exist.
+
+-- Insert data into the cricket_scores table
+INSERT INTO cricket_scores (ball, run) VALUES
+(1, 0), (2, 2), (3, 3), (4, 0), (5, 0), (6, 1),
+(7, 6), (8, 4), (9, 0), (10, 0), (11, 1), (12, 0);
+
+Description: This SQL command inserts multiple rows of data into the `cricket_scores` table. Each row represents a ball number and the runs scored on that ball.
+
+-- Query to select all data from cricket_scores
+SELECT * FROM cricket_scores;
+
+Description: This SQL query retrieves and displays all rows and columns from the `cricket_scores` table to verify the data that has been inserted.
+
+-- Query to calculate total runs per over
+SELECT CEILING(ball / 6.0) AS `over`, SUM(run) AS total_runs 
+FROM cricket_scores 
+GROUP BY CEILING(ball / 6.0);
+
+Description: This SQL query calculates the total runs scored in each over. 
+- `CEILING(ball / 6.0) AS \`over\``: Divides the `ball` number by 6 and uses the `CEILING` function to round up to the nearest integer, effectively grouping balls into overs.
+- `SUM(run) AS total_runs`: Sums the `run` values for each over.
+- `GROUP BY CEILING(ball / 6.0)`: Groups the data by the calculated over.
