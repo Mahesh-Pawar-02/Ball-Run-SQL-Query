@@ -19,4 +19,4 @@ Each row in this table represents the runs scored on a particular ball. The ball
 
 ![image](https://github.com/user-attachments/assets/9fc4db30-2053-497f-bfb8-761f4189ad86)
 
-[Created By](https://github.com/Mahesh-Pawar-02)
+[Created By Mahesh Pawar](https://github.com/Mahesh-Pawar-02)
